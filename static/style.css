@@ -2,8 +2,12 @@ ul.list {
     list-style-type: none;
 }
 
-.list li{
+.list li {
     padding-bottom: 10px;
     border-bottom: solid 1px;
     margin-right: 100px;
+}
+
+.list li span {
+    font-style: italic;
 }

@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# Copyright (C) 2013 CeibalJAM
+
 from flask import Flask
 from flask import render_template
 import os
@@ -27,11 +29,12 @@ def _getnoticia(n):
 def _getnoticias():
     _noticias = []
     for x in os.listdir(NEWS):
-        noticia_d = _getnoticia(x)
-        noticia_d['name'] = x[:-5]
-        if noticia_d:
-            _noticias.append(noticia_d)
-    
+        if x.endswith(".json"):
+            noticia_d = _getnoticia(x)
+            noticia_d['name'] = x[:-5]
+            if noticia_d:
+                _noticias.append(noticia_d)
+        
     return _noticias
 
 

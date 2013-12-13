@@ -4,10 +4,11 @@
 <head>
   <title>CeibalJAM - Noticias</title>
   <meta charset='utf-8'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></link>
   </head>
   <body>
     <h1>Noticias</h1>
-    <ul>
+    <ul class="list">
     {% for noticia in noticias %}
         <li>
         <h2><a href="/noticias/{{ noticia.name }}">{{ noticia.title }}</a></h2>

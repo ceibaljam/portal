@@ -60,7 +60,7 @@ def tags(_tag):
                 del noticia['tags']
                 TAGS_CACHE[_tag].append(noticia)
 
-    if _tag in TAGS_CACHE:
+    if _tag in TAGS_CACHE and TAGS_CACHE[_tag] != []:
         return render_template('tag.html', tag=_tag, noticias=TAGS_CACHE[_tag])
     else:
         return render_template('tag404.html', tag=_tag)

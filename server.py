@@ -13,31 +13,31 @@ def index():
     return "<a href='noticias'>Ver noticias</a>"
 
 
-@app.route('/noticias')
-def noticias():
-    _noticias = []
-    
-    for x in os.listdir(NEWS):
-        try:
-            n_json = json.load(open(path))
-            _noticias.append(n_json)
-        except ValueError:
-            pass
-     
-    return render_template("noticias.html", n_json)
-
-
-@app.route('/noticias/<x>')
-def noticias(noticia):
-    path = os.path.join(NEWS, x)
+def _getnoticia(n):
+    path = os.path.join(NEWS, n + ".json")
     if os.path.exists(path):
         try:
-            dic = json.load(open(path))
-            return render_template('noticia.html', dic)
+            return json.load(open(path))
         except ValueError:
+            return None
+            
+
+@app.route('/noticias/<x>')
+def noticias(noticia=None):
+    
+    if noticia:
+        noticia_d = _getnoticia()
+        if noticia_d:
+            return render_template('noticia.html', dic)
+        else:
             return render_template('noticia404.html', x)
     else:
-        return render_template('noticia404.html', x)
+        for x in os.listdir(NEWS):
+            noticia_d = _getnoticia()
+            if noticia_d:
+                _noticias.append(noticia_d)
+     
+        return render_template("noticias.html", n_json)
         
 
 if __name__ == "__main__":

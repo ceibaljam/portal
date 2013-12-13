@@ -35,11 +35,11 @@ def noticias(noticia):
             dic = json.load(open(path))
             return render_template('noticia.html', dic)
         except ValueError:
-            return render_template('noticia_404.html', x)
+            return render_template('noticia404.html', x)
     else:
-        return render_template('noticia_404.html', x)
+        return render_template('noticia404.html', x)
         
 
 if __name__ == "__main__":
-	app.debug = True
+    app.debug = True
     app.run()

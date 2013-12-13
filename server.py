@@ -6,8 +6,9 @@ import os
 import json
 
 NEWS = "noticias"
-app = Flask(__name__)
+TAGS_CACHE = {}
 
+app = Flask(__name__)
 
 @app.route('/')
 def index():
@@ -22,18 +23,22 @@ def _getnoticia(n):
         except ValueError:
             return None
 
-@app.route('/noticias/')
-def noticias():            
+
+def _getnoticias():
     _noticias = []
     for x in os.listdir(NEWS):
         noticia_d = _getnoticia(x)
         noticia_d['name'] = x[:-5]
         if noticia_d:
             _noticias.append(noticia_d)
-    print _noticias
- 
-    return render_template("noticias.html", noticias=_noticias)
+    
+    return _noticias
 
+
+@app.route('/noticias/')
+def noticias():            
+    return render_template("noticias.html", noticias=_getnoticias())
+        
 
 @app.route('/noticias/<noticia>')
 def noticias_(noticia=None):
@@ -43,7 +48,22 @@ def noticias_(noticia=None):
             return render_template('noticia.html', noticia=noticia_d)
         else:
             return render_template('noticia404.html', noticia=noticia)
-        
+            
+
+@app.route('/tags/<_tag>')
+def tags(_tag):
+    if not _tag in TAGS_CACHE:
+        TAGS_CACHE[_tag] = []
+        for noticia in _getnoticias():
+            if _tag in noticia['tags']:
+                del noticia['content']
+                del noticia['tags']
+                TAGS_CACHE[_tag].append(noticia)
+
+    if _tag in TAGS_CACHE:
+        return render_template('tag.html', tag=_tag, noticias=TAGS_CACHE[_tag])
+    else:
+        return render_template('tag404.html')
 
 if __name__ == "__main__":
     app.debug = True

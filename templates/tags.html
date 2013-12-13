@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<!-- Copyright (C) 2013 CeibalJAM -->
+<head>
+  <title>CeibalJAM - Etiquetas</title>
+  <meta charset='utf-8'>
+  </head>
+  <body>
+    <h1>Tags:</h1>
+    {% for tag in tags %}
+        <a href="/noticias/tags/{{ tag }}">{{ tag }}</a><br>
+    {% endfor %}
+    </ul>
+  </body>
+</html>

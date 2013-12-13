@@ -50,7 +50,7 @@ def noticias_(noticia=None):
             return render_template('noticia404.html', noticia=noticia)
             
 
-@app.route('/tags/<_tag>')
+@app.route('/noticias/tags/<_tag>')
 def tags(_tag):
     if not _tag in TAGS_CACHE:
         TAGS_CACHE[_tag] = []

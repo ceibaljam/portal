@@ -39,7 +39,7 @@ def noticias_(noticia=None):
     if noticia:
         noticia_d = _getnoticia('%s.json' % noticia)
         if noticia_d:
-            return render_template('noticia.html', noticia=dic)
+            return render_template('noticia.html', noticia=noticia_d)
         else:
             return render_template('noticia404.html', noticia=noticia)
         

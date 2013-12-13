@@ -85,7 +85,7 @@ def tags_(_tag):
     if not _tag in TAGS_CACHE:
         cache = _gen_tags_cache_for_tag(_tag)
         if cache != []:
-            TAGS_CACHE[_tags] = cache 
+            TAGS_CACHE[_tag] = cache
             
     if _tag in TAGS_CACHE and TAGS_CACHE[_tag] != []:
         return render_template('tag.html', tag=_tag, noticias=TAGS_CACHE[_tag])

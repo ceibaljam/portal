@@ -11,7 +11,7 @@
     <p>{{ noticia.content|safe }}</p>
     Tags:
     {% for tag in noticia.tags %}
-        <a>{{ tag }}</a>
+        <a href="/noticias/tags/{{ tag }}">{{ tag }}</a>
     {% endfor %}
     </ul>
   </body>

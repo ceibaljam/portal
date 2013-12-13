@@ -1,0 +1,6 @@
+{
+  "title": "Mi noticia",
+  "desc": "Aca va la descripcion",
+  "content": "Este es mi <b>Texto en negrita</b>",
+  "tags": ["Tag1", "Tag2", "Tag3"]
+}

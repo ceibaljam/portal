@@ -8,6 +8,6 @@
   <body>
     <h1>No se pudo cargar la noticia</h1>
     La noticia {{ noticia }} no se pudo cargar.<br>
-    <img src="terron-sad.svg"></img>
+    <img src="{{ url_for('static', filename='terron-sad.svg') }}"></img>
   </body>
 </html>

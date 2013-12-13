@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>{{ noticia.title }}</h1>
-    <p>{{ noticia.desc }}</p>
+    <p>{{ noticia.desc|safe }}</p>
     <p>{{ noticia.content|safe }}</p>
     Tags:
     {% for tag in noticia.tags %}

@@ -22,7 +22,7 @@ def _getnoticia(n):
         except ValueError:
             return None
 
-@app.route('/noticias')
+@app.route('/noticias/')
 def noticias():            
     _noticias = []
     for x in os.listdir(NEWS):

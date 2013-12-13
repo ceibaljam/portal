@@ -8,10 +8,10 @@
   <body>
     <h1>{{ noticia.title }}</h1>
     <p>{{ noticia.desc }}</p>
-    <p>{{ noticia.content }}</p>
+    <p>{{ noticia.content|safe }}</p>
     Tags:
     {% for tag in noticia.tags %}
-        <a>tag</a>
+        <a>{{ tag }}</a>
     {% endfor %}
     </ul>
   </body>

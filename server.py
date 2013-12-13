@@ -27,6 +27,7 @@ def noticias():
     _noticias = []
     for x in os.listdir(NEWS):
         noticia_d = _getnoticia(x)
+        noticia_d['name'] = x[:-5]
         if noticia_d:
             _noticias.append(noticia_d)
     print _noticias

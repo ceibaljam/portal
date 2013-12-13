@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<!-- Copyright (C) 2013 CeibalJAM -->
+<head>
+  <title>CeibalJAM - Noticias</title>
+  <meta charset='utf-8'>
+  </head>
+  <body>
+    <h1>Noticias</h1>
+    <ul>
+    {% for noticia in noticias %}
+        <li><b>{{ noticia.title }}</b><br>{{ noticia.desc }}</li>
+    {% endfor %}
+    </ul>
+  </body>
+</html>

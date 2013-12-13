@@ -63,7 +63,7 @@ def tags(_tag):
     if _tag in TAGS_CACHE:
         return render_template('tag.html', tag=_tag, noticias=TAGS_CACHE[_tag])
     else:
-        return render_template('tag404.html')
+        return render_template('tag404.html', tag=_tag)
 
 if __name__ == "__main__":
     app.debug = True

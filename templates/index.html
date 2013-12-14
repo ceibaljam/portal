@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<!-- Copyright (C) 2013 CeibalJAM -->
+  <head>
+    <title>CeibalJAM</title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></link>
+    <!-- jQuery library (served from Google) -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+        $(function() {
+        
+                $("#slideshow > div:gt(0)").hide();
+
+                setInterval(function() { 
+                    $('#slideshow > div:first')
+                    .fadeOut(1000)
+                    .next()
+                    .fadeIn(1000)
+                    .end()
+                    .appendTo('#slideshow');
+                },  8000);
+                
+        });
+    </script>
+
+  </head>
+  <body>
+    <div id="slideshow">
+    {% for image in images %}
+      <div>
+        <img src="/static/covers/{{ image }}" />
+      </div>
+    {% endfor %}
+    </div>
+    <div id="header">
+    <img src="{{ url_for('static', filename='Isologotipo.svg') }}"></img>
+    <h2>Comunidad uruguaya de desarrolladores de software libre educativo<br>
+    <a href="/noticias">Noticias</a></h2>
+    </div>
+
+    <script type="text/javascript">
+$(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+</script>
+  </body>
+</html>

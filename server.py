@@ -8,13 +8,14 @@ import os
 import json
 
 NEWS = "noticias"
+images = "static/covers"
 TAGS_CACHE = {}
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "<a href='noticias'>Ver noticias</a>"
+    return render_template('index.html', images=os.listdir(images))
 
 
 def _getnoticia(n):
@@ -67,6 +68,7 @@ def tags(_tag):
         return render_template('tag.html', tag=_tag, noticias=TAGS_CACHE[_tag])
     else:
         return render_template('tag404.html', tag=_tag)
+
 
 if __name__ == "__main__":
     app.debug = True

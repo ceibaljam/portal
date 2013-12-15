@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Modata'; /*a name to be used later*/
-    src: url('/static/fonts/MgOpenModataRegular.ttf'); /*URL to font*/
+    font-family: 'VAGRounded'; /*a name to be used later*/
+    src: url('/static/fonts/VAGRounded-Light.ttf');
 }
 
 body, html {

@@ -34,9 +34,13 @@
     {% endfor %}
     </div>
     <div id="header">
-    <img src="{{ url_for('static', filename='Isologotipo.svg') }}"></img>
-    <h2>Comunidad uruguaya de desarrolladores de software libre educativo<br>
-    <a href="/noticias">Noticias</a></h2>
+    <img src="{{ url_for('static', filename='logo-header.svg') }}"></img>
+    <div id="right">
+        <h2>Comunidad uruguaya de desarrolladores de software libre educativo</h2>
+        <a href="/noticias">Noticias</a>
+        <a href="/acercade">Acerca de CeibalJAM!</a>
+        <a href="/participar">Participar</a>
+    </div>
     </div>
 
     <script type="text/javascript">

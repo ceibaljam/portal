@@ -4,34 +4,25 @@
   <head>
     <title>CeibalJAM</title>
     <meta charset='utf-8'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='flexslider.css') }}"></link>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></link>
-    <!-- jQuery library (served from Google) -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script>
-        $(function() {
-        
-                $("#slideshow > div:gt(0)").hide();
-
-                setInterval(function() { 
-                    $('#slideshow > div:first')
-                    .fadeOut(1000)
-                    .next()
-                    .fadeIn(1000)
-                    .end()
-                    .appendTo('#slideshow');
-                },  8000);
-                
-        });
-    </script>
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='socialMedia.css') }}"></link>
+    <!-- Social Font Codes -->
+    <link href="/static/socialIconsFont/creativeverse_social-codes.css" rel="stylesheet" type="text/css" />
+    <link href="/static/socialIconsFont/creativeverse_social-embedded.css" rel="stylesheet" type="text/css" />
+    <link href="/static/socialIconsFont/creativeverse_social-ie7.css" rel="stylesheet" type="text/css" />
+    <link href="/static/socialIconsFont/creativeverse_social-ie7-codes.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='animate.css') }}"></link>
   </head>
   <body>
-    <div id="slideshow">
+    <div class="flexslider">
+    <ul class="slides">
     {% for image in images %}
-      <div>
+      <li>
         <img src="/static/covers/{{ image }}" />
-      </div>
+      </li>
     {% endfor %}
+    </ul>
     </div>
     <div id="header">
     <img src="{{ url_for('static', filename='logo-header.svg') }}"></img>
@@ -43,10 +34,27 @@
     </div>
     </div>
 
+    <div id="down">
+    <span id="note">
+    Copyright &copy; 2013 CeibalJAM!
+    </span>
+<ul class="cv-social-media">
+<a class="animated fadeIn" href="https://www.facebook.com/ceibaljam.ceibaljam"><li id="facebook" class="icon-facebook facebook"></li></a>
+<a class="animated fadeIn" href="https://twitter.com/ceibaljam"><li id="twitter" class="icon-twitter"></li></a>
+</ul>
+    </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+
+  <!-- FlexSlider -->
+  <script defer src="/static/jquery.flexslider.js"></script>
     <script type="text/javascript">
-$(document).ready(function(){
-  $('.bxslider').bxSlider();
-});
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+      });
+    });
 </script>
   </body>
 </html>

@@ -1,3 +1,8 @@
+body, html {
+    padding: 0px;
+    margin: 0px;
+}
+
 ul.list {
     list-style-type: none;
 }
@@ -10,4 +15,58 @@ ul.list {
 
 .list li span {
     font-style: italic;
+}
+
+textarea {
+    width: 100%;
+}
+
+input {
+    width: 50%;
+}
+
+#slideshow { 
+    position: relative;
+    width: 100%;
+    background: #000000;
+    margin: none;
+    padding: none;
+}
+
+#slideshow > div { 
+    position: absolute; 
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+#slideshow > div > img {
+    width: 100%;
+    height: auto;
+}
+
+header {
+    position: relative;
+    top: 0px;
+    width: auto;
+}
+
+
+#header {
+    position: absolute;
+    display: block;
+    top: 5px;
+    background: rgba(255, 255, 255, .50);
+    width: 98%;
+    padding: 1%;
+}
+
+#header h2 {
+    font-size: 30px;
+    text-align: right;
+    margin: 15px;
+}
+
+#header img {
+    float: left;
 }
